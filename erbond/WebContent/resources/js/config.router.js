@@ -344,17 +344,17 @@ angular.module('app')
               // fullCalendar
               .state('app.calendar', {
                   url: '/calendar',
-                  templateUrl: 'tpl/app_calendar.html',
+                  templateUrl: 'resources/page/app_calendar.html',
                   // use resolve to load other dependences
                   resolve: {
                       deps: ['$ocLazyLoad', 'uiLoad',
                         function( $ocLazyLoad, uiLoad ){
                           return uiLoad.load(
-                            ['vendor/jquery/fullcalendar/fullcalendar.css',
-                              'vendor/jquery/fullcalendar/theme.css',
-                              'vendor/jquery/jquery-ui-1.10.3.custom.min.js',
-                              'vendor/libs/moment.min.js',
-                              'vendor/jquery/fullcalendar/fullcalendar.min.js',
+                            ['resources/vendor/jquery/fullcalendar/fullcalendar.css',
+                              'resources/vendor/jquery/fullcalendar/theme.css',
+                              'resources/vendor/jquery/jquery-ui-1.10.3.custom.min.js',
+                              'resources/vendor/libs/moment.min.js',
+                              'resources/vendor/jquery/fullcalendar/fullcalendar.min.js',
                               'resources/js/app/calendar/calendar.js']
                           ).then(
                             function(){
@@ -376,7 +376,7 @@ angular.module('app')
                         function( uiLoad ){
                           return uiLoad.load( ['resources/js/app/mail/mail.js',
                                                'resources/js/app/mail/mail-service.js',
-                                               'vendor/libs/moment.min.js'] );
+                                               'resources/vendor/libs/moment.min.js'] );
                       }]
                   }
               })
@@ -455,7 +455,7 @@ angular.module('app')
                       deps: ['uiLoad',
                         function( uiLoad ){
                           return uiLoad.load( ['resources/js/app/note/note.js',
-                                               'vendor/libs/moment.min.js'] );
+                                               'resources/vendor/libs/moment.min.js'] );
                       }]
                   }
               })
@@ -479,7 +479,7 @@ angular.module('app')
                               {
                                   name: 'angular-skycons',
                                   files: ['resources/js/app/weather/skycons.js',
-                                          'vendor/libs/moment.min.js', 
+                                          'resources/vendor/libs/moment.min.js', 
                                           'resources/js/app/weather/angular-skycons.js',
                                           'resources/js/app/weather/ctrl.js' ] 
                               }
