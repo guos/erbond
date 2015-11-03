@@ -44,99 +44,7 @@ angular.module('app')
                         return $ocLazyLoad.load(['resources/js/controllers/chart.js']);
                     }]
                   }
-              })
-              .state('app.ui', {
-                  url: '/ui',
-                  template: '<div ui-view class="fade-in-up"></div>'
-              })
-              .state('app.ui.buttons', {
-                  url: '/buttons',
-                  templateUrl: 'tpl/ui_buttons.html'
-              })
-              .state('app.ui.icons', {
-                  url: '/icons',
-                  templateUrl: 'tpl/ui_icons.html'
-              })
-              .state('app.ui.grid', {
-                  url: '/grid',
-                  templateUrl: 'tpl/ui_grid.html'
-              })
-              .state('app.ui.widgets', {
-                  url: '/widgets',
-                  templateUrl: 'tpl/ui_widgets.html'
-              })          
-              .state('app.ui.bootstrap', {
-                  url: '/bootstrap',
-                  templateUrl: 'tpl/ui_bootstrap.html'
-              })
-              .state('app.ui.sortable', {
-                  url: '/sortable',
-                  templateUrl: 'tpl/ui_sortable.html'
-              })
-              .state('app.ui.portlet', {
-                  url: '/portlet',
-                  templateUrl: 'tpl/ui_portlet.html'
-              })
-              .state('app.ui.timeline', {
-                  url: '/timeline',
-                  templateUrl: 'tpl/ui_timeline.html'
-              })
-              .state('app.ui.tree', {
-                  url: '/tree',
-                  templateUrl: 'tpl/ui_tree.html',
-                  resolve: {
-                      deps: ['$ocLazyLoad',
-                        function( $ocLazyLoad ){
-                          return $ocLazyLoad.load('angularBootstrapNavTree').then(
-                              function(){
-                                 return $ocLazyLoad.load('resources/js/controllers/tree.js');
-                              }
-                          );
-                        }
-                      ]
-                  }
-              })
-              .state('app.ui.toaster', {
-                  url: '/toaster',
-                  templateUrl: 'tpl/ui_toaster.html',
-                  resolve: {
-                      deps: ['$ocLazyLoad',
-                        function( $ocLazyLoad){
-                          return $ocLazyLoad.load('toaster').then(
-                              function(){
-                                 return $ocLazyLoad.load('resources/js/controllers/toaster.js');
-                              }
-                          );
-                      }]
-                  }
-              })
-              .state('app.ui.jvectormap', {
-                  url: '/jvectormap',
-                  templateUrl: 'tpl/ui_jvectormap.html',
-                  resolve: {
-                      deps: ['$ocLazyLoad',
-                        function( $ocLazyLoad){
-                          return $ocLazyLoad.load('resources/js/controllers/vectormap.js');
-                      }]
-                  }
-              })
-              .state('app.ui.googlemap', {
-                  url: '/googlemap',
-                  templateUrl: 'tpl/ui_googlemap.html',
-                  resolve: {
-                      deps: ['uiLoad',
-                        function( uiLoad ){
-                          return uiLoad.load( [
-                            'resources/js/app/map/load-google-maps.js',
-                            'resources/js/app/map/ui-map.js',
-                            'resources/js/app/map/map.js'] ).then(
-                              function(){
-                                return loadGoogleMaps(); 
-                              }
-                            );
-                      }]
-                  }
-              })
+              })              
               .state('app.chart', {
                   url: '/chart',
                   templateUrl: 'tpl/ui_chart.html',
@@ -191,7 +99,7 @@ angular.module('app')
               })
               .state('app.form.elements', {
                   url: '/elements',
-                  templateUrl: 'resources/page/form_elements.html'
+                  templateUrl: 'resources/page/customer.html'
               })
               .state('app.form.validation', {
                   url: '/validation',
