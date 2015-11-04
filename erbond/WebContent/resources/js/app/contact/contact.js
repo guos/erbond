@@ -1,5 +1,5 @@
 app.controller('ContactCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
-  $http.get('js/app/contact/contacts.json').then(function (resp) {
+  $http.get('resources/js/app/contact/contacts.json').then(function (resp) {
     $scope.items = resp.data.items;
     $scope.item = $filter('orderBy')($scope.items, 'first')[0];
     $scope.item.selected = true;
@@ -66,7 +66,7 @@ app.controller('ContactCtrl', ['$scope', '$http', '$filter', function($scope, $h
   $scope.createItem = function(){
     var item = {
       group: 'Friends',
-      avatar:'img/a0.jpg'
+      avatar:'resources/img/a0.jpg'
     };
     $scope.items.push(item);
     $scope.selectItem(item);

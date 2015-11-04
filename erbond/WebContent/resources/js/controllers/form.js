@@ -21,13 +21,6 @@ app.controller('FormDemoCtrl', ['$scope','$http', function($scope,$http) {
 	
 	$scope.featchCustomerList();
 	
-	
-	
-	
-    $scope.notBlackListed = function(value) {
-      var blacklist = ['bad@domain.com','verybad@domain.com'];
-      return blacklist.indexOf(value) === -1;
-    }
 
     $scope.val = 15;
     var updateModel = function(val){
