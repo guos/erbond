@@ -3,7 +3,27 @@
 /* Controllers */
 
   // Form controller
-app.controller('FormDemoCtrl', ['$scope', function($scope) {
+app.controller('FormDemoCtrl', ['$scope','$http', function($scope,$http) {
+	
+	$scope.featchCustomerList=function(){
+		
+		$http.get('resources/js/controllers/customer.json').success(function(rsList){
+			$scope.customers=rsList;
+			console.dir("success!");
+		}).error(function(){
+			console.dir("fails");
+			$scope.setError("Couldn't connect to server");
+			
+		});
+		
+	};
+	
+	
+	$scope.featchCustomerList();
+	
+	
+	
+	
     $scope.notBlackListed = function(value) {
       var blacklist = ['bad@domain.com','verybad@domain.com'];
       return blacklist.indexOf(value) === -1;
