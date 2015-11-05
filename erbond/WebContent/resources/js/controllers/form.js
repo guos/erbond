@@ -7,13 +7,11 @@ app.controller('FormDemoCtrl', ['$scope','$http', function($scope,$http) {
 	
 	$scope.featchCustomerList=function(){
 		
-		$http.get('resources/js/controllers/customer.json').success(function(rsList){
+		$http.get('resources/api/customer.json').success(function(rsList){
 			$scope.customers=rsList;
 			console.dir("success!");
 		}).error(function(){
-			console.dir("fails");
-			$scope.setError("Couldn't connect to server");
-			
+			console.dir("fails");						
 		});
 		
 	};
