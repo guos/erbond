@@ -17,8 +17,8 @@
   "nav" : {
     "HEADER" : "导航",
     "DASHBOARD" : "主页",
-    "CALENDAR" : "日历",
-    "EMAIL" : "Email",
+    "CALENDAR" : "日程",
+    "EMAIL" : "邮件",
     "WIDGETS" : "插件",
     "components" : {
       "COMPONENTS" : "小工具",
@@ -45,7 +45,7 @@
         "FORM_VALIDATION" : "表单验证",
         "FORM_WIZARD" : "Form wizard"
       },
-      "CHART" : "图表",
+      "CHART" : "报表",
       "pages" : {
         "PAGES" : "页面",
         "PROFILE" : "个人资料",
@@ -60,7 +60,7 @@
       }
     },
     "your_stuff" : {
-      "YOUR_STUFF": "Your Stuff",
+      "YOUR_STUFF": "个人",
       "PROFILE" : "资料",
       "DOCUMENTS" : "文档"
     }

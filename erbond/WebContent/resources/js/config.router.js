@@ -37,7 +37,7 @@ angular.module('app')
               })
               .state('app.dashboard-v2', {
                   url: '/dashboard-v2',
-                  templateUrl: 'tpl/app_dashboard_v2.html',
+                  templateUrl: 'resources/page/app_dashboard_v2.html',
                   resolve: {
                     deps: ['$ocLazyLoad',
                       function( $ocLazyLoad ){
@@ -47,7 +47,7 @@ angular.module('app')
               })              
               .state('app.chart', {
                   url: '/chart',
-                  templateUrl: 'tpl/ui_chart.html',
+                  templateUrl: 'resources/page/ui_chart.html',
                   resolve: {
                       deps: ['uiLoad',
                         function( uiLoad){
@@ -62,19 +62,19 @@ angular.module('app')
               })
               .state('app.table.static', {
                   url: '/static',
-                  templateUrl: 'tpl/table_static.html'
+                  templateUrl: 'resources/page/table_static.html'
               })
               .state('app.table.datatable', {
                   url: '/datatable',
-                  templateUrl: 'tpl/table_datatable.html'
+                  templateUrl: 'resources/page/table_datatable.html'
               })
               .state('app.table.footable', {
                   url: '/footable',
-                  templateUrl: 'tpl/table_footable.html'
+                  templateUrl: 'resources/page/table_footable.html'
               })
               .state('app.table.grid', {
                   url: '/grid',
-                  templateUrl: 'tpl/table_grid.html',
+                  templateUrl: 'resources/page/table_grid.html',
                   resolve: {
                       deps: ['$ocLazyLoad',
                         function( $ocLazyLoad ){
@@ -97,21 +97,21 @@ angular.module('app')
                       }]
                   }
               })
-              .state('app.form.elements', {
-                  url: '/elements',
+              .state('app.form.customer', {
+                  url: '/customer',
                   templateUrl: 'resources/page/customer.html'
               })
-              .state('app.form.validation', {
-                  url: '/validation',
-                  templateUrl: 'tpl/form_validation.html'
+              .state('app.form.product', {
+                  url: '/product',
+                  templateUrl: 'resources/page/product.html'
               })
               .state('app.form.wizard', {
                   url: '/wizard',
-                  templateUrl: 'tpl/form_wizard.html'
+                  templateUrl: 'resources/page/form_wizard.html'
               })
               .state('app.form.fileupload', {
                   url: '/fileupload',
-                  templateUrl: 'tpl/form_fileupload.html',
+                  templateUrl: 'resources/page/form_fileupload.html',
                   resolve: {
                       deps: ['$ocLazyLoad',
                         function( $ocLazyLoad){
@@ -125,7 +125,7 @@ angular.module('app')
               })
               .state('app.form.imagecrop', {
                   url: '/imagecrop',
-                  templateUrl: 'tpl/form_imagecrop.html',
+                  templateUrl: 'resources/page/form_imagecrop.html',
                   resolve: {
                       deps: ['$ocLazyLoad',
                         function( $ocLazyLoad){
@@ -139,7 +139,7 @@ angular.module('app')
               })
               .state('app.form.select', {
                   url: '/select',
-                  templateUrl: 'tpl/form_select.html',
+                  templateUrl: 'resources/page/form_select.html',
                   controller: 'SelectCtrl',
                   resolve: {
                       deps: ['$ocLazyLoad',
@@ -154,7 +154,7 @@ angular.module('app')
               })
               .state('app.form.slider', {
                   url: '/slider',
-                  templateUrl: 'tpl/form_slider.html',
+                  templateUrl: 'resources/page/form_slider.html',
                   controller: 'SliderCtrl',
                   resolve: {
                       deps: ['$ocLazyLoad',
@@ -169,7 +169,7 @@ angular.module('app')
               })
               .state('app.form.editor', {
                   url: '/editor',
-                  templateUrl: 'tpl/form_editor.html',
+                  templateUrl: 'resources/page/form_editor.html',
                   controller: 'EditorCtrl',
                   resolve: {
                       deps: ['$ocLazyLoad',
@@ -189,32 +189,32 @@ angular.module('app')
               })
               .state('app.page.profile', {
                   url: '/profile',
-                  templateUrl: 'tpl/page_profile.html'
+                  templateUrl: 'resources/page/page_profile.html'
               })
               .state('app.page.post', {
                   url: '/post',
-                  templateUrl: 'tpl/page_post.html'
+                  templateUrl: 'resources/page/page_post.html'
               })
               .state('app.page.search', {
                   url: '/search',
-                  templateUrl: 'tpl/page_search.html'
+                  templateUrl: 'resources/page/page_search.html'
               })
               .state('app.page.invoice', {
                   url: '/invoice',
-                  templateUrl: 'tpl/page_invoice.html'
+                  templateUrl: 'resources/page/page_invoice.html'
               })
               .state('app.page.price', {
                   url: '/price',
-                  templateUrl: 'tpl/page_price.html'
+                  templateUrl: 'resources/page/page_price.html'
               })
               .state('app.docs', {
                   url: '/docs',
-                  templateUrl: 'tpl/docs.html'
+                  templateUrl: 'resources/page/docs.html'
               })
               // others
               .state('lockme', {
                   url: '/lockme',
-                  templateUrl: 'tpl/page_lockme.html'
+                  templateUrl: 'resources/page/page_lockme.html'
               })
               .state('access', {
                   url: '/access',
@@ -242,11 +242,11 @@ angular.module('app')
               })
               .state('access.forgotpwd', {
                   url: '/forgotpwd',
-                  templateUrl: 'tpl/page_forgotpwd.html'
+                  templateUrl: 'resources/page/page_forgotpwd.html'
               })
               .state('access.404', {
                   url: '/404',
-                  templateUrl: 'tpl/page_404.html'
+                  templateUrl: 'resources/page/page_404.html'
               })
 
               // fullCalendar
@@ -277,7 +277,7 @@ angular.module('app')
               .state('app.mail', {
                   abstract: true,
                   url: '/mail',
-                  templateUrl: 'tpl/mail.html',
+                  templateUrl: 'resources/page/mail.html',
                   // use resolve to load other dependences
                   resolve: {
                       deps: ['uiLoad',
@@ -290,30 +290,30 @@ angular.module('app')
               })
               .state('app.mail.list', {
                   url: '/inbox/{fold}',
-                  templateUrl: 'tpl/mail.list.html'
+                  templateUrl: 'resources/page/mail.list.html'
               })
               .state('app.mail.detail', {
                   url: '/{mailId:[0-9]{1,4}}',
-                  templateUrl: 'tpl/mail.detail.html'
+                  templateUrl: 'resources/page/mail.detail.html'
               })
               .state('app.mail.compose', {
                   url: '/compose',
-                  templateUrl: 'tpl/mail.new.html'
+                  templateUrl: 'resources/page/mail.new.html'
               })
 
               .state('layout', {
                   abstract: true,
                   url: '/layout',
-                  templateUrl: 'tpl/layout.html'
+                  templateUrl: 'resources/page/layout.html'
               })
               .state('layout.fullwidth', {
                   url: '/fullwidth',
                   views: {
                       '': {
-                          templateUrl: 'tpl/layout_fullwidth.html'
+                          templateUrl: 'resources/page/layout_fullwidth.html'
                       },
                       'footer': {
-                          templateUrl: 'tpl/layout_footer_fullwidth.html'
+                          templateUrl: 'resources/page/layout_footer_fullwidth.html'
                       }
                   },
                   resolve: {
@@ -327,10 +327,10 @@ angular.module('app')
                   url: '/mobile',
                   views: {
                       '': {
-                          templateUrl: 'tpl/layout_mobile.html'
+                          templateUrl: 'resources/page/layout_mobile.html'
                       },
                       'footer': {
-                          templateUrl: 'tpl/layout_footer_mobile.html'
+                          templateUrl: 'resources/page/layout_footer_mobile.html'
                       }
                   }
               })
@@ -338,10 +338,10 @@ angular.module('app')
                   url: '/app',
                   views: {
                       '': {
-                          templateUrl: 'tpl/layout_app.html'
+                          templateUrl: 'resources/page/layout_app.html'
                       },
                       'footer': {
-                          templateUrl: 'tpl/layout_footer_fullwidth.html'
+                          templateUrl: 'resources/page/layout_footer_fullwidth.html'
                       }
                   },
                   resolve: {
@@ -354,11 +354,11 @@ angular.module('app')
               .state('apps', {
                   abstract: true,
                   url: '/apps',
-                  templateUrl: 'tpl/layout.html'
+                  templateUrl: 'resources/page/layout.html'
               })
               .state('apps.note', {
                   url: '/note',
-                  templateUrl: 'tpl/apps_note.html',
+                  templateUrl: 'resources/page/apps_note.html',
                   resolve: {
                       deps: ['uiLoad',
                         function( uiLoad ){
@@ -369,7 +369,7 @@ angular.module('app')
               })
               .state('apps.contact', {
                   url: '/contact',
-                  templateUrl: 'tpl/apps_contact.html',
+                  templateUrl: 'resources/page/apps_contact.html',
                   resolve: {
                       deps: ['uiLoad',
                         function( uiLoad ){
@@ -379,7 +379,7 @@ angular.module('app')
               })
               .state('app.weather', {
                   url: '/weather',
-                  templateUrl: 'tpl/apps_weather.html',
+                  templateUrl: 'resources/page/apps_weather.html',
                   resolve: {
                       deps: ['$ocLazyLoad',
                         function( $ocLazyLoad ){
@@ -397,7 +397,7 @@ angular.module('app')
               })
               .state('music', {
                   url: '/music',
-                  templateUrl: 'tpl/music.html',
+                  templateUrl: 'resources/page/music.html',
                   controller: 'MusicCtrl',
                   resolve: {
                       deps: ['$ocLazyLoad',
@@ -416,27 +416,27 @@ angular.module('app')
               })
                 .state('music.home', {
                     url: '/home',
-                    templateUrl: 'tpl/music.home.html'
+                    templateUrl: 'resources/page/music.home.html'
                 })
                 .state('music.genres', {
                     url: '/genres',
-                    templateUrl: 'tpl/music.genres.html'
+                    templateUrl: 'resources/page/music.genres.html'
                 })
                 .state('music.detail', {
                     url: '/detail',
-                    templateUrl: 'tpl/music.detail.html'
+                    templateUrl: 'resources/page/music.detail.html'
                 })
                 .state('music.mtv', {
                     url: '/mtv',
-                    templateUrl: 'tpl/music.mtv.html'
+                    templateUrl: 'resources/page/music.mtv.html'
                 })
                 .state('music.mtvdetail', {
                     url: '/mtvdetail',
-                    templateUrl: 'tpl/music.mtv.detail.html'
+                    templateUrl: 'resources/page/music.mtv.detail.html'
                 })
                 .state('music.playlist', {
                     url: '/playlist/{fold}',
-                    templateUrl: 'tpl/music.playlist.html'
+                    templateUrl: 'resources/page/music.playlist.html'
                 })
       }
     ]

@@ -1,17 +1,100 @@
 <div class="bg-light lter b-b wrapper-md">
 	<h1 class="m-n font-thin h3">客户管理</h1>
 </div>
+<div class="wrapper-md">
+<div>
+		<row>
+		<div class="col-md-6">
+			<div class="panel no-border">
+				<div class="panel-heading bg-primary lt">
+					<div class="m-sm">
+						<span class="pull-right"><i
+							class="fa fa-caret-up text-warning text-lg"></i></span> <span
+							class="h4 text-white">Member Stats</span>
+					</div>
+					<div class="text-center m-t-md">
+						<div
+							ng-init="data2=[50.32,45.23,47.56,36.25,53.85,40.15,41.25,50.15,57.14,36.15,97.26,50.15,45.32,47.19,37.75,25.15,56.34,50.35,47.25,53.15]"
+							ui-jq="sparkline"
+							ui-options="
+                  {{data2}}, 
+                  {type:'line', height:80, width: '100%', lineWidth:4, lineColor:'#fff', spotColor:'#fff', fillColor:'', highlightLineColor:'#fff', spotRadius:6, minSpotColor:'{{app.color.warning}}', maxSpotColor:'{{app.color.info}}'}
+                  ">loading...</div>
+
+						<div ng-init="data3=[ 10,9,11,10,11,10,12,10,9,10,11,9,8 ]"
+							ui-jq="sparkline"
+							ui-options="{{data3}}, 
+                  {type:'bar', height:60, barWidth:4, barSpacing:6, barColor:'{{app.color.primary}}'}
+                  "
+							class="sparkline inline m-t m-b-n-sm"></div>
+					</div>
+				</div>
+				<div class="hbox bg-primary bg">
+					<div class="col wrapper">
+						<span>Customers</span>
+						<div class="h1 text-info font-thin">12,790</div>
+					</div>
+					<div class="col wrapper bg-info">
+						<span>VIP</span>
+						<div class="h1 text-warning font-thin">2,560</div>
+					</div>
+				</div>
+				<div class="panel-footer bg-light lter wrapper">
+					<div class="row">
+						<div class="col-xs-4">
+							<small class="text-muted block">Active</small> <span
+								class="text-md">1,500</span>
+						</div>
+						<div class="col-xs-4">
+							<small class="text-muted block">Inactive</small> <span
+								class="text-md">10,430</span>
+						</div>
+						<div class="col-xs-4">
+							<small class="text-muted block">Sleeping</small> <span
+								class="text-md">400</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading font-bold">Donut Pie</div>
+				<div class="panel-body">
+					<div ui-jq="plot"
+						ui-options="
+              {{d3}},
+              {
+                series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: { show: true, threshold: 0.05 } } },
+                colors: ['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','{{app.color.danger}}'],
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },   
+                tooltip: true,
+                tooltipOpts: { content: '%s: %p.0%' }
+              }
+            "
+						style="height: 240px"></div>
+				</div>
+			</div>
+		</div>
+
+		</row>
+	</div>
+</div>
+
+
 <div class="wrapper-md" ng-controller="FormDemoCtrl">
-	
+
 	<!-- table -->
-	<div class="panel panel-default">		
+	<div class="panel panel-default">
 		<div class="panel-heading font-bold">客户列表</div>
 		<div class="panel-body b-b b-light">
 			查找: <input id="filter" type="text"
 				class="form-control input-sm w-sm inline m-r" />
-				<button class="btn m-b-xs w-xs btn-success">新建客戶</button>
+			<button class="btn m-b-xs w-xs btn-success" ng-click="newCustomer()">新建客戶</button>
+			<button class="btn m-b-xs w-xs btn-success" ng-click="upload()">批量上传</button>
 		</div>
-		
+
 		<div>
 			<table class="table m-b-none" ui-jq="footable" data-filter="#filter"
 				data-page-size="5">
@@ -26,14 +109,20 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="item in customers |orderBy:age">
+						<td ng-show="false">{{item.id}}</td>
 						<td>{{item.name}}</td>
 						<td><a href>{{item.age}}</a></td>
 						<td>Traffic Court Referee</td>
 						<td data-value="78025368997">22 Jun 1972</td>
-						<td data-value="1"><span class="label bg-success"
-							title="Active">Active</span></td>
+						<td>
+							<button class="btn btn-mini btn-danger"
+								ng-click="removeRailwayStation(item.id)">删除</button>
+							<button class="btn btn-mini btn-warning"
+								ng-click="editRailwayStation(item)">编辑</button>
+						</td>
+
 					</tr>
-					
+
 					<tr>
 						<td>Lauri</td>
 						<td>Hyland</td>
@@ -54,12 +143,12 @@
 		</div>
 	</div>
 	<!-- /table -->
-	
-	
+
+
 	<!-- new customer -->
-	
-	
-	<div class="panel panel-default">
+
+
+	<div class="panel panel-default" ng-show="customerStatus">
 		<div class="panel-heading font-bold">新增客户</div>
 		<form name="forma" class="form-horizontal form-validation">
 			<div class="panel-body">
@@ -244,14 +333,14 @@
 
 			<footer class="panel-footer text-center bg-light lter">
 				<button type="submit" class="btn btn-default">取消</button>
-				<button type="submit" class="btn btn-primary">保存</button>				
+				<button type="submit" class="btn btn-primary">保存</button>
 			</footer>
 
 		</form>
 	</div>
-	
-	
-	
+
+
+
 </div>
 
 

@@ -3,7 +3,7 @@
 /* Controllers */
 
   // Form controller
-app.controller('FormDemoCtrl', ['$scope','$http', function($scope,$http) {
+app.controller('FormDemoCtrl', ['$scope','$http', '$modal',function($scope,$http,$modal) {
 	
 	$scope.featchCustomerList=function(){
 		
@@ -15,12 +15,32 @@ app.controller('FormDemoCtrl', ['$scope','$http', function($scope,$http) {
 		});
 		
 	};
-	
-	
+	$scope.customerStatus=false;	
 	$scope.featchCustomerList();
-	
-
     $scope.val = 15;
+    
+    
+    //function
+    
+	  $scope.newCustomer = function() {
+		  $scope.customerStatus=true;
+		  console.dir($scope.customerStatus);
+//		  var size=500;
+//		    var modalInstance = $modal.open({
+//		      templateUrl: 'resources/page/myModalContent.html',
+//		      controller: 'ModalInstanceCtrl',
+//		      size: size,
+//		      resolve: {
+//		        items: function() {
+//		          return $scope.items;
+//		        }
+//		      }
+//		    });
+		    
+	  }
+    
+    
+    
     var updateModel = function(val){
       $scope.$apply(function(){
         $scope.val = val;
