@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+<properties resource="config/jdbc.properties"/>  
+	<!--  <properties
+		url="file:///E:/srcb/workspaceFORPE2/GoodsMIS/etc/config/jdbc.properties"></properties>-->
+
+	<classPathEntry
+		location="G:\jars\mysql-connector-java-5.1.25-bin.jar" />
+
+	<context id="MYSQLTables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="${DB.url}" userId="${DB.username}" password="${DB.password}">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.acefarmer.model.pojo" targetProject="erbond">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+             <!-- xml path -->
+        
+		<sqlMapGenerator targetPackage="config.sqlmapping" targetProject="erbond/etc">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>	  
+            
+            <!-- Mapper interface -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.acefarmer.model.mapper" targetProject="erbond">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- schema,DB,tableName:用于自动生成代码的表；domainObjectName:对应于表的javaBean类名 -->
+		<!-- <table tableName="address" domainObjectName="Address" schema="acefarmer" 
+			enableInsert="true" enableSelectByPrimaryKey="true" enableSelectByExample="false" 
+			enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false"> 
+			<property name="useActualColumnNames" value="false" /> <columnOverride column="UNSIGNED_BIGINT_FIELD" 
+			javaType="java.lang.Object" jdbcType="LONG" /> </table> <table tableName="city" 
+			domainObjectName="City" schema="acefarmer" enableInsert="true" enableSelectByPrimaryKey="true" 
+			enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" 
+			enableUpdateByExample="false"> <property name="useActualColumnNames" value="false" 
+			/> </table> -->
+        <table tableName="account" enableSelectByPrimaryKey="true" />
+		<table tableName="address" enableSelectByPrimaryKey="true" />
+		<table tableName="area" enableSelectByPrimaryKey="true"/>
+		<table tableName="brand" domainObjectName="Brand" enableSelectByPrimaryKey="true"/>
+		<table tableName="buy" domainObjectName="Buy" enableSelectByPrimaryKey="true"/>
+		<table tableName="city" domainObjectName="City" enableSelectByPrimaryKey="true"/>		
+		<table tableName="login" domainObjectName="Login" />
+		<table tableName="org" domainObjectName="Org" enableSelectByPrimaryKey="true"/>
+		<table tableName="pay" domainObjectName="Pay" enableSelectByPrimaryKey="true"/>
+		<table tableName="paymethod" domainObjectName="PayMethod" enableSelectByPrimaryKey="true"/>
+		<table tableName="person" domainObjectName="Person" />
+		<table tableName="product" domainObjectName="Product" />
+		<table tableName="province" domainObjectName="Province" />
+		<table tableName="sell" domainObjectName="Sell" />
+		<table tableName="stock" domainObjectName="Stock" />		
+		<table tableName="wuliu" domainObjectName="WuLiu" />
+		<table tableName="wuliuorg" domainObjectName="WuLiuOrg" />
+		
+	</context>
+</generatorConfiguration> 

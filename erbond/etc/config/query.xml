@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file store the SQL query or store procedure -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+<!-- 	<bean name="baseDao" class="com.acefarmer.model.dao.BaseDao" abstract="true"> -->
+<!-- 		<property name="sqlSession" ref="sqlSession" /> -->
+<!-- 	</bean> -->
+<!-- 	<bean name="addressDao" class="com.acefarmer.model.dao.AddressDao" parent="baseDao"> -->
+<!-- 	</bean> -->
+<!-- 	<bean name="productDao" class="com.acefarmer.model.dao.ProductDao" parent="baseDao"> -->
+<!-- 	</bean> -->
+
+</beans>

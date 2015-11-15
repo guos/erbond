@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- This is used to config the dataSource -->
+
+	<!-- jdbc propertise -->
+	<context:property-placeholder location="classpath:config/jdbc.properties" />
+
+
+	<!-- data source configs -->
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="${DB.url}" />
+		<property name="username" value="${DB.username}" />
+		<property name="password" value="${DB.password}" />
+		<property name="initialSize" value="3" />
+		<property name="maxActive" value="20" />
+		<property name="maxIdle" value="10" />
+		<property name="minIdle" value="3" />
+		<property name="validationQuery" value="${DB.validationQuery}"></property>
+		<property name="testOnBorrow" value="true" />
+		<property name="testOnReturn" value="true" />
+		<property name="testWhileIdle" value="true" />
+	</bean>
+</beans>

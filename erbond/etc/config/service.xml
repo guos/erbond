@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+<!-- This file store the service bean -->
+
+	<import resource="dataSource.xml" />
+	<import resource="query.xml" />
+
+	<!-- ========= spring with MyBatis , if use spring JDBC ======= -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!--  <property name="configLocation" value="classpath:config/myBatis.xml" />-->
+		<property name="dataSource" ref="dataSource" />
+	    <property name="mapperLocations" value="classpath:config/sqlmapping/**/*.xml" />		
+	</bean>
+
+	<!-- =========  trnsactionManager  ===== -->
+
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+</beans>

@@ -13,7 +13,7 @@ app.controller('FullcalendarCtrl', ['$scope', function($scope) {
     $scope.eventSource = {
             url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
             className: 'gcal-event',           // an option!
-            currentTimezone: 'America/Chicago' // an option!
+            currentTimezone: 'China/Shanghai' // an option!
     };
 
     /* event source that contains custom events on the scope */

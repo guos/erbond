@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManager"> <constructor-arg 
+		ref="pathExtensionContentNegotiationStrategy" /> </bean> <bean id="pathExtensionContentNegotiationStrategy" class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy"> 
+		<constructor-arg> <map> <entry key="rss" value="application/rss+xml" /> <entry key="json" value="application/json" /> <entry 
+		key="atom" value="application/atom+xml" /> <entry key="pdf" value="application/pdf" /> <entry key="xls" value="application/vnd.ms-excel" 
+		/> </map> </constructor-arg> </bean> -->
+
+	<!-- Setup a simple strategy: 1. Only path extension is taken into account, Accept headers are ignored. 2. Return HTML by 
+		default when not sure. -->
+	<bean id="cnManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="defaultContentType" value="text/html" />  <!--在没有扩展名时即: "/user/1" 时的默认展现形式 ,mediaTypes 都不匹配时调用-->
+		<property name="ignoreAcceptHeader" value="true" /> <!-- 设置为true以忽略对Accept Header的支持 -->
+		<property name="favorPathExtension" value="true" /><!-- 用于开启扩展名支持如xxx.json,默认为true -->
+		<property name="favorParameter" value="false" />   <!-- 用于开启 /userinfo/123?format=json 的支持 -->
+		<property name="useJaf" value="false" />
+		<property name="mediaTypes"> <!-- 扩展名至mimeType的映射,即 /user.json => application/json -->
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+				<entry key="pdf" value="application/pdf" />
+				<entry key="xls" value="application/vnd.ms-excel" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="contentViewResolver" class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order" value="1" />
+        <property name="contentNegotiationManager" ref="cnManager" />
+		<property name="viewResolvers">
+			<list>
+				<!-- <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" /> for rss,pdf,etc -->
+				<!--  <ref bean="internalViewResolver" />-->
+				<!-- <bean class="org.springframework.web.servlet.view.XmlViewResolver">
+					<property name="location" value="spreadsheet-views.xml" />
+				</bean> -->
+			</list>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<!-- for application/json -->
+				<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
+				<!-- for application/xml -->
+				<ref bean="xmlMarshallView" />
+				<!-- for application/other -->
+			</list>
+		</property>
+
+	</bean>
+
+<!-- 	<bean name="internalViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+<!-- 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" /> -->
+<!-- 		<property name="prefix" value="/resources/" /> -->
+<!-- 		<property name="suffix" value=".html"></property> -->
+<!-- 	</bean> -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<property name="maxUploadSize" value="100000" />
+	</bean>
+
+	<bean name="xmlMarshallView" class="org.springframework.web.servlet.view.xml.MarshallingView">
+		<property name="contentType" value="application/xml" />
+		<property name="marshaller">
+			<bean class="org.springframework.oxm.xstream.XStreamMarshaller" />
+		</property>
+	</bean>
+
+	<!-- Mapping exception to the handler view -->
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<!-- to /error.jsp -->
+		<property name="defaultErrorView" value="/error" />
+		<property name="exceptionMappings">
+			<map>
+				<entry key="java.lang.NullPointerException" value="npe" />
+			</map>
+		</property>
+
+	</bean>
+
+
+	<!-- xml视图,Jaxb2Marshaller,需要配置对象和对象添加Annotation xml注解，不需要添加额外的jar包 <bean name="jaxb2MarshallingView" class="org.springframework.web.servlet.view.xml.MarshallingView"> 
+		<constructor-arg> <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller"> <property name="classesToBeBound"> <array> 
+		<value>com.acefarmer.model.pojo.Address</value> </array> </property> </bean> </constructor-arg> </bean> -->
+
+
+
+
+</beans>
