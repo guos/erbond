@@ -34,20 +34,20 @@
         "VECTOR_MAP" : "Vector Map"
       },
       "table" : {
-        "TABLE" : "表格",
+        "TABLE" : "销售",
         "TABLE_STATIC" : "表格统计",
         "DATATABLE" : "数据表",
         "FOOTABLE" : "Footable"
       },
       "form" : {
-        "FORM" : "表单",
-        "FORM_ELEMENTS" : "表单元素",
+        "FORM" : "客户",
+        "CUSTOMER" : "客户管理",
         "FORM_VALIDATION" : "表单验证",
         "FORM_WIZARD" : "Form wizard"
       },
       "CHART" : "报表",
       "pages" : {
-        "PAGES" : "页面",
+        "PRODUCT" : "产品",
         "PROFILE" : "个人资料",
         "POST" : "发表",
         "SEARCH" : "搜索",

@@ -41,7 +41,7 @@
       },
       "form" : {
         "FORM" : "Form",
-        "FORM_ELEMENTS" : "Form elements",
+        "CUSTOMER" : "Customer",
         "FORM_VALIDATION" : "Form validation",
         "FORM_WIZARD" : "Form wizard"
       },

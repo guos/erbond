@@ -1,20 +1,18 @@
 
+<div class="modal-header">
+    <h3 class="modal-title">新增产品</h3>
+    <a href class="text-muted pull-right text-lg" ng-click="cancel()"><i
+							class="icon-close" ></i></a>
+</div>
 
+<div class="modal-body" ng-controller="FormDemoCtrl">
 
-<!--  <div class="modal-body wrapper-lg" ng-controller="FormDemoCtrl">-->
-
-
-<div class="col-sm-9" ng-controller="CustomerCtrl">
 	<form name="formValidate" class="form-horizontal form-validation">
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<strong>新增客户</strong>
-			</div>
 			<div class="panel-body">
-
 				<div class="form-group">
 					<label class="col-sm-2 control-label" for="input-id-1">客户名称</label>
-					<div class="col-sm-9">
+					<div class="col-sm-6">
 						<input type="text" class="form-control" id="input-id-1"
 							ng-model="customer.name">
 					</div>
@@ -22,7 +20,7 @@
 				<div class="line line-dashed b-b line-lg pull-in"></div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">手机</label>
-					<div class="col-sm-9">
+					<div class="col-sm-6">
 						<input type="text" class="form-control"
 							placeholder="(XXX) XXXX XXX" ng-model="customer.mobile"
 							ng-pattern="/\([0-9]{3}\) ([0-9]{3}) ([0-9]{3})$/" required>
@@ -31,7 +29,7 @@
 				<div class="line line-dashed b-b line-lg pull-in"></div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">联系电话</label>
-					<div class="col-sm-9">
+					<div class="col-sm-6">
 						<input type="text" class="form-control"
 							placeholder="(XXX) XXXX XXX" ng-model="customer.phone"
 							ng-pattern="/\([0-9]{3}\) ([0-9]{3}) ([0-9]{3})$/" required>
@@ -41,7 +39,7 @@
 				<div class="line line-dashed b-b line-lg pull-in"></div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">城市</label>
-					<div class="col-sm-9">
+					<div class="col-sm-6">
 						<select ui-jq="chosen" class="form-control m-t"
 							ng-model="customer.city">
 							<optgroup label="上海">
@@ -63,7 +61,7 @@
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">区/县</label>
-						<div class="col-sm-9">
+						<div class="col-sm-6">
 							<select class="form-control m-t" ng-model="customer.area"
 								required>
 								<option>区/县</option>
@@ -75,7 +73,7 @@
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">详细地址</label>
-						<div class="col-sm-9">
+						<div class="col-sm-6">
 							<input type="text" class="form-control" id="input-id-1"
 								ng-model="customer.address">
 						</div>
@@ -84,7 +82,7 @@
 					<div class="line line-dashed b-b line-lg pull-in"></div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">微信号</label>
-						<div class="col-sm-9">
+						<div class="col-sm-6">
 							<input type="text" class="form-control"
 								ng-model="customer.weixin">
 						</div>
@@ -92,7 +90,7 @@
 					<div class="line line-dashed b-b line-lg pull-in"></div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">旺旺ID</label>
-						<div class="col-sm-9">
+						<div class="col-sm-6">
 							<input type="text" class="form-control"
 								ng-model="customer.wangwang">
 						</div>
@@ -101,7 +99,7 @@
 					<div class="line line-dashed b-b line-lg pull-in"></div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Email</label>
-						<div class="col-sm-9">
+						<div class="col-sm-6">
 							<input type="email" class="form-control" placeholder="email"
 								ng-model="customer.email" required>
 						</div>
@@ -110,7 +108,7 @@
 					<div class="line line-dashed b-b line-lg pull-in"></div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">网址</label>
-						<div class="col-sm-9">
+						<div class="col-sm-6">
 							<input type="url" class="form-control" placeholder="http://"
 								ng-model="customer.url" required>
 						</div>
@@ -119,7 +117,7 @@
 					<div class="line line-dashed b-b line-lg pull-in"></div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">生日</label>
-						<div class="col-sm-9">
+						<div class="col-sm-6">
 							<input type="text" class="form-control" placeholder="YYYY-MM-DD"
 								ng-model="customer.birthday"
 								ng-pattern="/[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])$/"
@@ -141,15 +139,10 @@
 					</div>
 				</div>
 
-				<footer class="panel-footer text-right bg-light lter">
-					<button type="reset" class="btn btn-default" ng-click="cancel()">取消</button>
-					<button type="submit" class="btn btn-primary">保存</button>
-				</footer>
 			</div>
 	</form>
 </div>
-
-
-<!--  
-
-</div>  -->
+<div class="modal-footer">                  
+    <button class="btn btn-default" ng-click="cancel()">取消</button>
+    <button class="btn btn-primary" ng-click="ok()">保存</button>
+</div>

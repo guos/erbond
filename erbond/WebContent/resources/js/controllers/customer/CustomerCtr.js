@@ -3,10 +3,9 @@
 /* Controllers */
 
   // Form controller
-app.controller('FormDemoCtrl', ['$scope','$http', '$modal',function($scope,$http,$modal) {
+app.controller('CustomerCtrl', ['$scope','$http', '$modal',function($scope,$http,$modal) {
 	 $scope.customer = {};
-	$scope.featchCustomerList=function(){
-		
+	$scope.featchCustomerList=function(){		
 		$http.get('resources/api/customer.json').success(function(rsList){
 			$scope.customers=rsList;
 			console.dir("success!");
@@ -16,7 +15,7 @@ app.controller('FormDemoCtrl', ['$scope','$http', '$modal',function($scope,$http
 		
 	};
 	
-	
+	$scope.customer.type='org';
 	
 	
 	

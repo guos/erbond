@@ -99,7 +99,13 @@ angular.module('app')
               })
               .state('app.form.customer', {
                   url: '/customer',
-                  templateUrl: 'resources/page/customer.html'
+                  templateUrl: 'resources/page/customer.html',
+                	   resolve: {
+                           deps: ['uiLoad',
+                             function( uiLoad ){
+                               return uiLoad.load( ['resources/js/controllers/customer/CustomerCtr.js'] );
+                           }]
+                       }
               })
               .state('app.form.product', {
                   url: '/product',
