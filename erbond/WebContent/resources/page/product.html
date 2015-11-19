@@ -1,26 +1,21 @@
 <div class="bg-light lter b-b wrapper-md">
 	<h1 class="m-n font-thin h3">产品管理</h1>
 </div>
-
-
-
-<div class="wrapper-md" ng-controller="FormDemoCtrl">
+<div class="wrapper-md" ng-controller="ProductCtrl">
 	<!-- table -->
 	<div class="panel panel-default">
 		<div class="panel-heading font-bold">产品列表</div>
 		<div class="panel-body b-b b-light">
 			查找: <input id="filter" type="text"
 				class="form-control input-sm w-sm inline m-r" />
-			<button class="btn m-b-xs w-xs btn-success" ng-click="newCustomer()">新建客戶</button>
-			<button class="btn m-b-xs w-xs btn-success" ng-click="upload()">批量上传</button>
-	     <span ng-controller="ModalDemoCtrl">
+		<span ng-controller="ModalDemoCtrl">
           <script type="text/ng-template" id="myModalContent.html">
             <div ng-include="'resources/page/new.product.html'"></div>
           </script>
-          <button class="btn m-b-xs w-xs btn-success" ng-click="open('lg')">新建客戶窗口</button>
-        </span>
-			
-			
+          <button class="btn m-b-xs w-xs btn-success" ng-click="open('lg')">新增产品</button>          
+        </span>	
+        <button class="btn m-b-xs w-xs btn-success" ng-click="">批量模板下载</button>
+		<button class="btn m-b-xs w-xs btn-success" ng-click="upload()">批量上传</button>			
 		</div>
 
 		<div>

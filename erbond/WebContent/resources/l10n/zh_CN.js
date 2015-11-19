@@ -48,9 +48,9 @@
       "CHART" : "报表",
       "pages" : {
         "PRODUCT" : "产品",
-        "PROFILE" : "个人资料",
-        "POST" : "发表",
-        "SEARCH" : "搜索",
+        "PRODUCTMANAGE" : "产品管理",
+        "BAND" : "品牌管理",
+        "SUPPLIER" : "供应商管理",
         "INVOICE" : "发货单",
         "LOCK_SCREEN" : "锁屏",
         "SIGNIN" : "登陆",

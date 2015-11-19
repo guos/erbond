@@ -109,7 +109,13 @@ angular.module('app')
               })
               .state('app.form.product', {
                   url: '/product',
-                  templateUrl: 'resources/page/product.html'
+                  templateUrl: 'resources/page/product.html',
+                  resolve: {
+                      deps: ['uiLoad',
+                        function( uiLoad ){
+                          return uiLoad.load( ['resources/js/controllers/product/ProductCtr.js'] );
+                      }]
+                  }
               })
               .state('app.form.wizard', {
                   url: '/wizard',
@@ -197,13 +203,13 @@ angular.module('app')
                   url: '/profile',
                   templateUrl: 'resources/page/page_profile.html'
               })
-              .state('app.page.post', {
-                  url: '/post',
-                  templateUrl: 'resources/page/page_post.html'
+              .state('app.page.band', {
+                  url: '/band',
+                  templateUrl: 'resources/page/band.html'
               })
-              .state('app.page.search', {
-                  url: '/search',
-                  templateUrl: 'resources/page/page_search.html'
+              .state('app.page.supplier', {
+                  url: '/supplier',
+                  templateUrl: 'resources/page/supplier.html'
               })
               .state('app.page.invoice', {
                   url: '/invoice',
@@ -217,6 +223,8 @@ angular.module('app')
                   url: '/docs',
                   templateUrl: 'resources/page/docs.html'
               })
+              
+              
               // others
               .state('lockme', {
                   url: '/lockme',
