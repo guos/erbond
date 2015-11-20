@@ -1,27 +1,21 @@
 <div class="bg-light lter b-b wrapper-md">
 	<h1 class="m-n font-thin h3">客户管理</h1>
 </div>
-
-
-
-<div class="wrapper-md" ng-controller="FormDemoCtrl">
-
+<div class="wrapper-md" ng-controller="CustomerCtrl">
 	<!-- table -->
 	<div class="panel panel-default">
 		<div class="panel-heading font-bold">客户列表</div>
 		<div class="panel-body b-b b-light">
 			查找: <input id="filter" type="text"
 				class="form-control input-sm w-sm inline m-r" />
-			<button class="btn m-b-xs w-xs btn-success" ng-click="newCustomer()">新建客戶</button>
-			<button class="btn m-b-xs w-xs btn-success" ng-click="upload()">批量上传</button>
-	     <span ng-controller="ModalDemoCtrl">
-          <script type="text/ng-template" id="myModalContent.html">
+	      <span	ng-controller="ModalDemoCtrl"> <script
+					type="text/ng-template" id="myModalContent.html">
             <div ng-include="'resources/page/new.customer.html'"></div>
           </script>
-          <button class="btn m-b-xs w-xs btn-success" ng-click="open('lg')">新建客戶窗口</button>
-        </span>
-			
-			
+				<button class="btn m-b-xs w-xs btn-success" ng-click="open('lg')">新建客戶</button>
+			</span>
+			<button class="btn m-b-xs w-xs btn-success" ng-click="upload()">批量上传</button>
+			<button class="btn m-b-xs w-xs btn-success" ng-click="newCustomer()">批量模板</button>
 		</div>
 
 		<div>
@@ -33,7 +27,7 @@
 						<th>手机号码</th>
 						<th data-hide="phone,tablet">地址</th>
 						<th data-hide="phone,tablet" data-name="Date Of Birth">最近消费时间</th>
-						<th data-hide="phone">Status</th>
+						<th>Status</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,21 +39,11 @@
 						<td data-value="78025368997">22 Jun 1972</td>
 						<td>
 							<button class="btn btn-mini btn-danger"
-								ng-click="removeRailwayStation(item.id)">删除</button>
+								ng-click="removeCustomer(item.id)">删除</button>
 							<button class="btn btn-mini btn-warning"
-								ng-click="editRailwayStation(item)">编辑</button>
+								ng-click="editCustomer(item)">编辑</button>
 						</td>
-
-					</tr>
-
-					<tr>
-						<td>Lauri</td>
-						<td>Hyland</td>
-						<td>Blackjack Supervisor</td>
-						<td data-value="500874333932">15 Nov 1985</td>
-						<td data-value="3"><span class="label bg-warning"
-							title="Suspended">Suspended</span></td>
-					</tr>
+					</tr>             
 				</tbody>
 				<tfoot class="hide-if-no-paging">
 					<tr>
@@ -72,13 +56,6 @@
 		</div>
 	</div>
 	<!-- /table -->
-
-
-	<!-- new customer -->
-
-
-	
-
 </div>
 
 

@@ -106,17 +106,7 @@ angular.module('app')
                                return uiLoad.load( ['resources/js/controllers/customer/CustomerCtr.js'] );
                            }]
                        }
-              })
-              .state('app.form.product', {
-                  url: '/product',
-                  templateUrl: 'resources/page/product.html',
-                  resolve: {
-                      deps: ['uiLoad',
-                        function( uiLoad ){
-                          return uiLoad.load( ['resources/js/controllers/product/ProductCtr.js'] );
-                      }]
-                  }
-              })
+              })   
               .state('app.form.wizard', {
                   url: '/wizard',
                   templateUrl: 'resources/page/form_wizard.html'
@@ -199,13 +189,29 @@ angular.module('app')
                   url: '/page',
                   template: '<div ui-view class="fade-in-down"></div>'
               })
+             .state('app.page.product', {
+                  url: '/product',
+                  templateUrl: 'resources/page/product.html',
+                  resolve: {
+                      deps: ['uiLoad',
+                        function( uiLoad ){
+                          return uiLoad.load( ['resources/js/controllers/product/ProductCtr.js'] );
+                      }]
+                  }
+              })
               .state('app.page.profile', {
                   url: '/profile',
                   templateUrl: 'resources/page/page_profile.html'
               })
               .state('app.page.band', {
                   url: '/band',
-                  templateUrl: 'resources/page/band.html'
+                  templateUrl: 'resources/page/band.html',
+                  resolve: {
+                      deps: ['uiLoad',
+                        function( uiLoad ){
+                          return uiLoad.load( ['resources/js/controllers/product/BandCtr.js'] );
+                      }]
+                  }
               })
               .state('app.page.supplier', {
                   url: '/supplier',
