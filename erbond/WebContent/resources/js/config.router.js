@@ -99,11 +99,11 @@ angular.module('app')
               })
               .state('app.form.customer', {
                   url: '/customer',
-                  templateUrl: 'resources/page/customer.html',
+                  templateUrl: 'resources/page/customer/customer.html',
                 	   resolve: {
                            deps: ['uiLoad',
                              function( uiLoad ){
-                               return uiLoad.load( ['resources/js/controllers/customer/CustomerCtr.js'] );
+                               return uiLoad.load( ['resources/js/controllers/customer/CustomerCtr.js','resources/js/controllers/customer/AddressCtr.js'] );
                            }]
                        }
               })   
@@ -191,7 +191,7 @@ angular.module('app')
               })
              .state('app.page.product', {
                   url: '/product',
-                  templateUrl: 'resources/page/product.html',
+                  templateUrl: 'resources/page/product/product.html',
                   resolve: {
                       deps: ['uiLoad',
                         function( uiLoad ){
@@ -205,7 +205,7 @@ angular.module('app')
               })
               .state('app.page.band', {
                   url: '/band',
-                  templateUrl: 'resources/page/band.html',
+                  templateUrl: 'resources/page/product/band.html',
                   resolve: {
                       deps: ['uiLoad',
                         function( uiLoad ){
@@ -215,7 +215,7 @@ angular.module('app')
               })
               .state('app.page.supplier', {
                   url: '/supplier',
-                  templateUrl: 'resources/page/supplier.html'
+                  templateUrl: 'resources/page/supplier/supplier.html'
               })
               .state('app.page.invoice', {
                   url: '/invoice',
@@ -310,15 +310,15 @@ angular.module('app')
               })
               .state('app.mail.list', {
                   url: '/inbox/{fold}',
-                  templateUrl: 'resources/page/mail.list.html'
+                  templateUrl: 'resources/page/mail/mail.list.html'
               })
               .state('app.mail.detail', {
                   url: '/{mailId:[0-9]{1,4}}',
-                  templateUrl: 'resources/page/mail.detail.html'
+                  templateUrl: 'resources/page/mail/mail.detail.html'
               })
               .state('app.mail.compose', {
                   url: '/compose',
-                  templateUrl: 'resources/page/mail.new.html'
+                  templateUrl: 'resources/page/mail/mail.new.html'
               })
 
               .state('layout', {

@@ -2,75 +2,34 @@
 
 /* Controllers */
 
-  // Form controller
-app.controller('CustomerCtrl', ['$scope','$http', '$modal',function($scope,$http,$modal) {
-	 $scope.customer = {};
-	$scope.featchCustomerList=function(){		
-		$http.get('resources/api/customer.json').success(function(rsList){
-			$scope.customers=rsList;
-			console.dir("success!");
-		}).error(function(){
-			console.dir("fails");						
-		});
-		
-	};
-	
-	$scope.customer.type='org';
-	
-	
-	
-	
-	$scope.customerStatus=false;	
-	$scope.featchCustomerList();
-    $scope.val = 15;
-    
-    
-    //function
-    
-	  $scope.newCustomer = function() {
-		  $scope.customerStatus=true;
-		  console.dir($scope.customerStatus);
-//		  var size=500;
-//		    var modalInstance = $modal.open({
-//		      templateUrl: 'resources/page/myModalContent.html',
-//		      controller: 'ModalInstanceCtrl',
-//		      size: size,
-//		      resolve: {
-//		        items: function() {
-//		          return $scope.items;
-//		        }
-//		      }
-//		    });
-		    
-	  }
-    
-    
-    
-    var updateModel = function(val){
-      $scope.$apply(function(){
-        $scope.val = val;
-      });
-    };
-    angular.element("#slider").on('slideStop', function(data){
-      updateModel(data.value);
-    });
+// Form controller
+app.controller('CustomerCtrl', [
+		'$scope',
+		'$http',
+		'$modal',
+		function($scope, $http, $modal) {
+			$scope.customer = {};
+			$scope.featchCustomerList = function() {
+				$http.get('resources/api/customer.json').success(
+						function(rsList) {
+							$scope.customers = rsList;
+							console.dir("get customer list success!");
+						}).error(function() {
+					console.dir("get customer fails");
+				});
 
-    $scope.select2Number = [
-      {text:'First',  value:'One'},
-      {text:'Second', value:'Two'},
-      {text:'Third',  value:'Three'}
-    ];
+			};		
+			// ----------call function
+			$scope.customer.type = 'org';		
+			$scope.featchCustomerList();
+			// function
 
-    $scope.list_of_string = ['tag1', 'tag2']
-    $scope.select2Options = {
-        'multiple': true,
-        'simple_tags': true,
-        'tags': ['tag1', 'tag2', 'tag3', 'tag4']  // Can be empty list.
-    };
+			$scope.newCustomer = function(value) {
+				
+              console.dir(value);
+              $scope.ok();
+			}
 
-    angular.element("#LinkInput").bind('click', function (event) {
-      event.stopPropagation();
-    });
+			// -------end
 
-  }])
- ;
+		} ]);

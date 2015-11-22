@@ -8,7 +8,7 @@
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	<!-- This file store the view,controller,only used for web -->
-	<context:component-scan base-package="com.erbond.web.controller" />
+	<context:component-scan base-package="com.erbond" />
 	<mvc:annotation-driven />
    <!-- <mvc:default-servlet-handler/>--><!-- 激活default servlet，访问静态资源 -->
 	 <mvc:resources mapping="/resources/**" location="/resources/"  cache-period="31556926" /> 
